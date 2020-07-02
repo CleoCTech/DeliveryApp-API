@@ -1,0 +1,13 @@
+{
+    "name": "user/delivery-app",
+    "description": "n",
+    "authors": [
+        {
+            "name": "CleoCTech",
+            "email": "cleophasomwenga292@gmail.com"
+        }
+    ],
+    "require": {
+        "africastalking/africastalking": "^2.3"
+    }
+}
