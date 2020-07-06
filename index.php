@@ -23,6 +23,7 @@ $endpoint =$user_request_['request'];
 
 //now here we use a switch case to loop through which type of request is made and do the neccessary .
 //so we tell the API which request is made by the user or frontend, and the what the request made what to engage with which funtion or methid in the API 
+//the switch case here behaves like a route. 
 switch ($endpoint) {
     //case 1; request made is 'collect_parcel'
     //if that is the case, do the following 
@@ -32,7 +33,22 @@ switch ($endpoint) {
         $save = $base->parcel_info($user_request_['body']);
         echo l($save);
         break;
-    
+
+    case 'parcel_info': 
+        //here lets test by echoing the type of request made and any other data passed in $user_request_[]  array  
+       // echo l($user_request_['body']);
+        $parcel_info = $base->get_parcel_info($user_request_['body']['id']);
+        echo l($parcel_info);
+        break;
+
+    case 'collection_point': 
+        //here lets test by echoing the type of request made and any other data passed in $user_request_[]  array  
+       // echo l($user_request_['body']);
+        $sms = $base->parcel_at_collection_point($user_request_['body']['id']);
+        echo l($sms);
+        break;
+
+        
     default:
     //if the request made is not understood by the API it will throw an error message
        echo l(['request' => $endpoint, 'message' => "Request was not understood"]);
